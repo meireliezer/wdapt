@@ -23,7 +23,7 @@
     color: var(--color-secondary);
 }
 
-.main-nav a:hover, .main-nav a:focus {
+.main-nav a:hover, .main-nav a:focus, .active {
     color: var(--color-secondary-invert);
     background-color: var(--bg-secondary-invert);
 }
