@@ -2,16 +2,14 @@
 .main {
     display: flex;    
     height: 100%;
-    width: 100%;
     background-color:  thistle;
-
 }
 
 
 .main-nav {
     background-color: var(--bg-secondary);
     padding-top: var(--main-margin-top);
-
+    min-width: 140px;
 }
 
 .main-nav li {
