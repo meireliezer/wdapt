@@ -1,0 +1,21 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --main-margin-top: 1em;
+    --bg-primary: white;
+    --bg-secondary: gray;
+    --bg-secondary-invert: #222;
+
+    --color-primary: black;
+    --color-secondary: white;
+    --color-secondary-invert:gray;
+}
+
+
+body {
+    height: 100vh;    
+}

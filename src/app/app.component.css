@@ -1,0 +1,33 @@
+
+.main {
+    display: flex;    
+    height: 100%;
+
+}
+
+
+.main-nav {
+    background-color: var(--bg-secondary);
+    padding-top: var(--main-margin-top);
+
+}
+
+.main-nav {    
+    
+}
+
+.main-nav li {
+    list-style: none;    
+}
+
+.main-nav a {
+    display: block;
+    text-decoration: none;    
+    padding: 0.7em 1.5em;    
+    color: var(--color-secondary);
+}
+
+.main-nav a:hover, .main-nav a:focus {
+    color: var(--color-secondary-invert);
+    background-color: var(--bg-secondary-invert);
+}
