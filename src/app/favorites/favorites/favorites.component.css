@@ -1,0 +1,7 @@
+.favorites-header {
+    margin-top: var(--main-margin-top);
+    background-color: tomato;
+    padding-top: 0.7em ;
+    padding-left: 1em;  
+}
+

@@ -1,2 +1,21 @@
-<p>favorites works!</p>
-<router-outlet></router-outlet>
+<div class="w-100">
+    <div class="favorites-header">
+        <div>Favorite sites</div>
+        <div class="search">
+            <input type="text" placehoder="Filter by web site or url">
+            <div>o</div>
+        </div>
+        <div class="actions-toolbar">
+            <div>Grid/Tiles</div>
+            <div class="btn">
+                <div>+</div>
+                <div>Add</div>
+            </div>
+        </div>
+     </div>   
+     <div classs="favorites-content">
+        <router-outlet></router-outlet>
+     </div>    
+</div>
+
+
