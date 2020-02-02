@@ -2,6 +2,22 @@
     margin-top: var(--main-margin-top);
     background-color: tomato;
     padding-top: 0.7em ;
-    padding-left: 1em;  
+    padding-bottom: 0.7em;
+    padding-left: 1em;      
+    display: flex;
+    justify-content: flex-end;
 }
+ .favorites-header--title {     
+     align-self: flex-start;
+ }
+
+.search {
+    display: flex;
+    background-color: white;
+}
+
+.actions-toolbar {
+    display: flex;
+}
+
 
