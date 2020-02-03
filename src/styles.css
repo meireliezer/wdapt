@@ -9,10 +9,12 @@
     --bg-primary: white;
     --bg-secondary: gray;
     --bg-secondary-invert: #222;
+    --bg-hover:lightsteelblue;
 
     --color-primary: black;
     --color-secondary: white;
     --color-secondary-invert:gray;
+
 }
 
 
@@ -24,3 +26,20 @@ body {
 .w-100 {
     width: 100%;
 }
+
+table{ 
+    width: 100%;
+    border-spacing: 0;
+}
+
+ th {
+    text-align: left;
+}
+ th,  tr:not(:last-of-type) td {
+    border-bottom: 1px solid black;
+}
+
+  tr:hover td {
+    background-color: var(--bg-hover);
+}
+

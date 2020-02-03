@@ -8,25 +8,7 @@
     font-size: 1.5rem;
     margin-bottom: 1em;
 }
-.action-log__grid {
 
-}
-
-.action-log__grid table{ 
-    width: 100%;
-    border-spacing: 0;
-}
-
-.action-log__grid th {
-    text-align: left;
-}
-.action-log__grid th, .action-log__grid tr:not(:last-of-type) td {
-    border-bottom: 1px solid black;
-}
-
- .action-log__grid tr:hover td {
-    background-color: lightsteelblue;
-}
 
 
 

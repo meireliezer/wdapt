@@ -29,7 +29,7 @@
 }
 
 .card-internal:hover {
- background-color: lightsteelblue;
+ background-color: var(--bg-hover);
 }
 
 .card-internal:hover .float-action {

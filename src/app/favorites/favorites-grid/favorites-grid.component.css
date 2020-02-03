@@ -1,0 +1,17 @@
+
+
+.float-action {    
+    display: flex;    
+    justify-content: flex-end;
+    visibility: hidden; 
+}
+
+tr:hover .float-action {
+    visibility: visible;
+}
+
+.float-action-botton {
+    margin: 0.25em;
+    cursor: pointer;
+
+}
