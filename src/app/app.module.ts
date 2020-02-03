@@ -17,11 +17,11 @@ const appRoutes: Routes = [
         component: FavoritesGridComponent
       },
       {
-        path: 'tile',
+        path: 'tiles',
         component: FavoritesTilesComponent
       },
       { path: 'favorites',
-        redirectTo: '/favorites/grid',
+        redirectTo: '/favorites/tiles',
         pathMatch: 'full'
       },
 

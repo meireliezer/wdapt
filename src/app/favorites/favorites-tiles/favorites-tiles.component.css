@@ -1,0 +1,43 @@
+.tiles-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {    
+    width: 20%;
+    padding: 0.5em;    
+}
+
+.card-internal {
+    border: 2px solid black;
+}
+
+.card img {
+    display: block;
+    max-width: 100%;        
+}
+
+.card .name {
+    margin-top: 0.25em;
+    text-align: center;
+}
+
+.float-action {    
+    display: flex;    
+    justify-content: flex-end;
+    visibility: hidden; 
+}
+
+.card-internal:hover {
+ background-color: lightsteelblue;
+}
+
+.card-internal:hover .float-action {
+    visibility: visible;
+}
+
+.float-action-botton {
+    margin: 0.25em;
+    cursor: pointer;
+
+}
