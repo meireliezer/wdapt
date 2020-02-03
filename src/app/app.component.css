@@ -27,3 +27,9 @@
     color: var(--color-secondary-invert);
     background-color: var(--bg-secondary-invert);
 }
+
+.main-content {
+    margin-top: var(--main-margin-top);
+    padding-left: 1em;      
+    padding-right: 1em;
+}
