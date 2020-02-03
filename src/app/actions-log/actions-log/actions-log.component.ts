@@ -14,7 +14,6 @@ export class ActionsLogComponent implements OnInit {
   public actions$ = this.actionsService.actions$;
   
   constructor(private  actionsService: ActionsLogService) { 
-    
   }
 
   ngOnInit() {
