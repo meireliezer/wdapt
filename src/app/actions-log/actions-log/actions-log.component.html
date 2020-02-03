@@ -1,0 +1,22 @@
+<div class="action-log">
+    <div class="page__title">
+        Actions log
+    </div>
+    <div class="action-log__grid">
+        <table *ngIf="(actions$| async) as actions">
+            <tr>
+                <th>Date/Time</th>
+                <th>Action</th>
+                <th>Website name</th>
+                <th>Url</th>
+            </tr>
+            <tr *ngFor="let action of actions">
+                <td>{{action.date | date}}</td>
+                <td>{{action.type}}</td>
+                <td>{{action.websiteName}}</td>
+                <td>{{action.url}}</td>              
+        </table>
+    </div>
+
+
+</div>

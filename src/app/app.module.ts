@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { FavoritesComponent } from './favorites/favorites/favorites.component';
 import { FavoritesGridComponent } from './favorites/favorites-grid/favorites-grid.component';
 import { FavoritesTilesComponent } from './favorites/favorites-tiles/favorites-tiles.component';
-import { ActionLogComponent } from './action-log/action-log/action-log.component';
+import { ActionsLogComponent } from './actions-log/actions-log/actions-log.component';
+import { ActionsLogService} from './common/action-log/actions-log.service';
 
 
 const appRoutes: Routes = [
@@ -28,7 +29,7 @@ const appRoutes: Routes = [
     ]
   },
 
-  { path: 'action-log',      component: ActionLogComponent },
+  { path: 'action-log',      component: ActionsLogComponent },
   { path: '',
     redirectTo: '/favorites',
     pathMatch: 'full'
@@ -42,7 +43,7 @@ const appRoutes: Routes = [
     FavoritesComponent,
     FavoritesGridComponent,
     FavoritesTilesComponent,
-    ActionLogComponent
+    ActionsLogComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +53,7 @@ const appRoutes: Routes = [
     )
     
   ],
-  providers: [],
+  providers: [ActionsLogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
