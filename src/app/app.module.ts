@@ -9,7 +9,7 @@ import { FavoritesTilesComponent } from './favorites/favorites-tiles/favorites-t
 import { ActionsLogComponent } from './actions-log/actions-log/actions-log.component';
 import { ActionsLogService} from './common/action-log/actions-log.service';
 import { ActionFormatterPipe } from './core/action-formatter/action-formatter.pipe';
-
+import { FavoritesService } from './common/favorites/favorites.service';
 
 
 const appRoutes: Routes = [
@@ -56,7 +56,7 @@ const appRoutes: Routes = [
     )
     
   ],
-  providers: [ActionsLogService],
+  providers: [ActionsLogService, FavoritesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
