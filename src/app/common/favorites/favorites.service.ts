@@ -38,6 +38,12 @@ export class FavoritesService {
       websiteName: 'google',
       url: 'http://google.com',
       img: '//unsplash.it/302/200',      
+    },
+    {
+      id: 6,
+      websiteName: 'angular univeristy',
+      url: 'https://angular-university.io/',
+      img: '//unsplash.it/302/201',      
     }
   ];
 
@@ -50,7 +56,7 @@ export class FavoritesService {
 
     setTimeout( ()=> {
       this.favoriteSubject.next(this.favoritesList);
-    }, 5000);
+    }, 0);
 
   }
 }
