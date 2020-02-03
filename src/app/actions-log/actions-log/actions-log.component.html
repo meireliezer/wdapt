@@ -12,7 +12,7 @@
             </tr>
             <tr *ngFor="let action of actions">
                 <td>{{action.date | date}}</td>
-                <td>{{action.type}}</td>
+                <td>{{action.type | actionFormatter}}</td>
                 <td>{{action.websiteName}}</td>
                 <td>{{action.url}}</td>              
         </table>

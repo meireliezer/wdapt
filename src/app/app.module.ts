@@ -8,6 +8,8 @@ import { FavoritesGridComponent } from './favorites/favorites-grid/favorites-gri
 import { FavoritesTilesComponent } from './favorites/favorites-tiles/favorites-tiles.component';
 import { ActionsLogComponent } from './actions-log/actions-log/actions-log.component';
 import { ActionsLogService} from './common/action-log/actions-log.service';
+import { ActionFormatterPipe } from './core/action-formatter/action-formatter.pipe';
+
 
 
 const appRoutes: Routes = [
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     FavoritesComponent,
     FavoritesGridComponent,
     FavoritesTilesComponent,
-    ActionsLogComponent
+    ActionsLogComponent,
+    ActionFormatterPipe
   ],
   imports: [
     BrowserModule,
