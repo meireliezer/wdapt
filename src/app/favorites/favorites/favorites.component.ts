@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { fromEvent  } from 'rxjs';
 import { map, distinctUntilChanged, debounce, debounceTime, tap } from 'rxjs/operators';
 import { SearchService } from 'src/app/common/search/search.service';
+import { FavoritesService } from 'src/app/common/favorites/favorites.service';
 
 @Component({
   selector: 'app-favorites',
@@ -16,7 +17,13 @@ export class FavoritesComponent implements OnInit, AfterViewInit{
   }
 
   public filter: string;
-  
+  public displayAddDialog =  true;
+
+
+  @Input()
+  public websiteName: string = '';
+  @Input()
+  public url:string = '';
   
   @ViewChild('search', {static: true})
   private _searchElem: ElementRef
@@ -26,7 +33,8 @@ export class FavoritesComponent implements OnInit, AfterViewInit{
 
   constructor(private  activatedRoute: ActivatedRoute, 
               private router: Router,
-              private searchService: SearchService) {
+              private searchService: SearchService,
+              private favoritesService: FavoritesService) {
     
   }
 
@@ -59,9 +67,22 @@ export class FavoritesComponent implements OnInit, AfterViewInit{
         this.router.navigate(['favorites/tiles']);
         break;
     }
-
   }
 
+  public addNewWebsite() {
+    this.displayAddDialog =  true;
+  }
+
+  public closeNewAddDialog() {
+    this.displayAddDialog = false;
+  }
+
+  public submit(){
+    console.log( `website name: ${this.websiteName}   url: ${this.url}`);
+    this.favoritesService.add(this.websiteName, this.url);
+    this.displayAddDialog = false;
+    
+  }
 
 
 }

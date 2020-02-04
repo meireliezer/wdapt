@@ -8,7 +8,7 @@
         <div class="actions-toolbar">
             <div class="btn" (click)="toggle('TILES')" *ngIf="isGrid"><i class="fas fa-border-none"></i></div>
             <div class="btn" (click)="toggle('GRID')"  *ngIf="!isGrid"><i class="fas fa-list"></i></div>       
-            <div class="btn"><i class="fas fa-plus"></i>Add</div>
+            <div class="btn" (click)="addNewWebsite()"><i class="fas fa-plus"></i>Add</div>
         </div>
      </div>   
      <div classs="favorites-content">
@@ -16,30 +16,27 @@
      </div>    
 </div>
 
+<!---------------------------------------------------------
+                 Add Dialog                             
+----------------------------------------------------------->
 <ng-template #addWebsite>
-    <div class="add-dialog">
+    <div class="add-dialog">        
             <div class="dialog">
-                <div class="dialog__header">
-                    Add new website
-                </div>
-                <div class="dialog__content">
-                    <label>Website name<input type="text"></label>
-                    <label>URL<input type="text"></label>
-                </div>
-                <div class="dialog__footer">
-                    <div class="btn">Add website</div>
-                    <div class="btn">Cancle</div>
-                </div>
-
-
-            </div>
+                    <div class="dialog__header">
+                        Add new website
+                    </div>
+                    <div class="dialog__content">
+                        <label>Website name<input type="text" [(ngModel)]="websiteName"></label>
+                        <label>URL<input type="text" [(ngModel)]="url"></label>
+                    </div>
+                    <div class="dialog__footer">
+                        <div class="btn" (click)="submit()" >Add website</div>
+                        <div class="btn" (click)="closeNewAddDialog()">Cancle</div>
+                    </div>                
+            </div>        
     </div>
-
 </ng-template>
+<ng-content *ngIf= "!displayAddDialog; else addWebsite">        
+</ng-content>
 
-<ng-content *ngTemplateOutlet="addWebsite"></ng-content>
-
-<div *ngIf= "false; else addWebsite">
-    <ng-content *ngTemplateOutlet="addWebsite"></ng-content>
-</div>
 

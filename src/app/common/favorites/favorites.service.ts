@@ -59,4 +59,20 @@ export class FavoritesService {
     }, 0);
 
   }
+
+
+  public add(websiteName:string, url:string) {
+    let id = Math.trunc(Math.random()*100);
+    let width = 300 + Math.trunc(Math.random()*10);
+    let height = 200 +Math.trunc(Math.random()*10);
+    this.favoritesList.push({
+      id: id,
+      img: `//unsplash.it/${width}/${height}`,
+      websiteName,
+      url
+    });
+    
+    this.favoriteSubject.next([...this.favoritesList]);
+  }
+
 }
