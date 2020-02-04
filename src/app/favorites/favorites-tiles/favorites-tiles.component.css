@@ -18,13 +18,17 @@
 
 .card .name {
     margin-top: 0.25em;
-    text-align: center;
+    text-align: center;    
+    white-space: nowrap;    
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .float-action {    
     display: flex;    
     justify-content: flex-end;
     visibility: hidden; 
+  
 }
 
 .card-internal:hover {
