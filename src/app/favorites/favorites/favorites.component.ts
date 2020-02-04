@@ -4,6 +4,7 @@ import { fromEvent  } from 'rxjs';
 import { map, distinctUntilChanged, debounce, debounceTime, tap } from 'rxjs/operators';
 import { SearchService } from 'src/app/common/search/search.service';
 import { FavoritesService } from 'src/app/common/favorites/favorites.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-favorites',
@@ -27,7 +28,12 @@ export class FavoritesComponent implements OnInit, AfterViewInit{
   
   @ViewChild('search', {static: true})
   private _searchElem: ElementRef
+
+
   
+  @ViewChild('f', {static: false})
+  private _addForm: NgForm;
+
   private _isGrid = false;
 
 
@@ -53,6 +59,9 @@ export class FavoritesComponent implements OnInit, AfterViewInit{
       tap(val => console.log(val))
     )
     .subscribe(val => this.searchService.filter(val) );
+
+
+    console.log('Form:', this._addForm);
   }
 
 
@@ -75,14 +84,29 @@ export class FavoritesComponent implements OnInit, AfterViewInit{
 
   public closeNewAddDialog() {
     this.displayAddDialog = false;
+    this.resetAddData();    
   }
 
   public submit(){
+    console.log('Form:', this._addForm);
+
     console.log( `website name: ${this.websiteName}   url: ${this.url}`);
     this.favoritesService.add(this.websiteName, this.url);
     this.displayAddDialog = false;
+    this.resetAddData();    
+  }
+
+  public isValid(){
+    if(this._addForm && this._addForm.value && this._addForm.value.websiteName){
+      return this._addForm.valid && (this._addForm.value.websiteName.trim() !== '') && (this._addForm.value.url.trim() !== '');
+    }
+    return false;
     
   }
 
+  private resetAddData(){
+    this.websiteName = '';
+    this.url = '';
+  }
 
 }

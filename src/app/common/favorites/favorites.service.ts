@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FavoriteItem } from 'src/app/model/favorite-item.interface';
 import { BehaviorSubject } from 'rxjs';
+import { ActionsLogService } from '../action-log/actions-log.service';
 
 @Injectable({
   providedIn: 'root'
@@ -52,7 +53,7 @@ export class FavoritesService {
 
 
 
-  constructor() { 
+  constructor(private actionsLogService:ActionsLogService) { 
 
     setTimeout( ()=> {
       this.favoriteSubject.next(this.favoritesList);
@@ -73,6 +74,7 @@ export class FavoritesService {
     });
     
     this.favoriteSubject.next([...this.favoritesList]);
+    this.actionsLogService.add(websiteName, url);
   }
 
 }

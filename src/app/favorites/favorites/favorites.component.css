@@ -57,6 +57,11 @@
     background-color: lightslategray;
 }
 
+.btn-disabled {
+    cursor: default;
+    background-color: grey;
+    pointer-events: none;
+}
 
 .add-dialog {
     background-color: lightslategrey;

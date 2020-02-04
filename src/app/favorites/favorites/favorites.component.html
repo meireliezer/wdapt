@@ -22,18 +22,22 @@
 <ng-template #addWebsite>
     <div class="add-dialog">        
             <div class="dialog">
+                <form (ngSubmit)="submite()" #f="ngForm"  autocomplete="off" novalidate>
                     <div class="dialog__header">
-                        Add new website
+                        Add new website                        
                     </div>
                     <div class="dialog__content">
-                        <label>Website name<input type="text" [(ngModel)]="websiteName"></label>
-                        <label>URL<input type="text" [(ngModel)]="url"></label>
-                    </div>
-                    <div class="dialog__footer">
-                        <div class="btn" (click)="submit()" >Add website</div>
+                        <label>Website name<input type="text" name="websiteName" [(ngModel)]="websiteName" required></label>
+                        <label>URL<input type="text" name="url" [(ngModel)]="url" required></label>
+                    </div>                                       
+                    <div class="dialog__footer">                                                
+                        <div class="btn" (click)="submit()" [ngClass]="{'btn-disabled':!isValid() }" >Add website</div>
                         <div class="btn" (click)="closeNewAddDialog()">Cancle</div>
-                    </div>                
-            </div>        
+                    </div>      
+                    
+                </form>                              
+            </div>   
+            
     </div>
 </ng-template>
 <ng-content *ngIf= "!displayAddDialog; else addWebsite">        
