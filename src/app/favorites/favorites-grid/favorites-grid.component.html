@@ -5,7 +5,7 @@
             <th>URL</th>
             <th></th>
         </tr>
-        <tr *ngFor="let favorite of favorites">
+        <tr *ngFor="let favorite of favorites | searchFilter:filterTxt">
             <td class="name">{{favorite.websiteName}}</td>
             <td class="url">{{favorite.url}}</td>
             <td> 

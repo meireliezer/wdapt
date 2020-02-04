@@ -10,6 +10,7 @@ import { ActionsLogComponent } from './actions-log/actions-log/actions-log.compo
 import { ActionsLogService} from './common/action-log/actions-log.service';
 import { ActionFormatterPipe } from './core/action-formatter/action-formatter.pipe';
 import { FavoritesService } from './common/favorites/favorites.service';
+import { SearchFilterPipe } from './core/search-filter/search-filter.pipe';
 
 
 const appRoutes: Routes = [
@@ -21,10 +22,10 @@ const appRoutes: Routes = [
       },
       {
         path: 'tiles',
-        component: FavoritesTilesComponent
+        component: FavoritesTilesComponent      
       },
-      { path: 'favorites',
-        redirectTo: '/favorites/tiles',
+      { path: '',
+        redirectTo: '/favorites/grid',
         pathMatch: 'full'
       },
 
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   },
 
   { path: 'action-log',      component: ActionsLogComponent },
+  
   { path: '',
     redirectTo: '/favorites',
     pathMatch: 'full'
@@ -46,7 +48,8 @@ const appRoutes: Routes = [
     FavoritesGridComponent,
     FavoritesTilesComponent,
     ActionsLogComponent,
-    ActionFormatterPipe
+    ActionFormatterPipe,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,

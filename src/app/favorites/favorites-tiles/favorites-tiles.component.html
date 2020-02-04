@@ -1,4 +1,4 @@
-<div class="tiles-content" *ngIf="(favorites$ | async) as favorites">
+<div class="tiles-content" *ngIf="(favorites$ | async  | searchFilter:filterTxt) as favorites ">
     <div class="card" *ngFor="let favorite of favorites">
         <div class="card-internal">
             <img [src]="favorite.img" alt="">
