@@ -6,8 +6,8 @@
             <div><i class="fas fa-search-plus"></i></div>
         </div>
         <div class="actions-toolbar">
-            <div class="btn"><i class="fas fa-list"></i></div>
-            <div class="btn"><i class="fas fa-border-none"></i></div>       
+            <div class="btn" (click)="toggle('TILES')" *ngIf="isGrid"><i class="fas fa-border-none"></i></div>
+            <div class="btn" (click)="toggle('GRID')"  *ngIf="!isGrid"><i class="fas fa-list"></i></div>       
             <div class="btn"><i class="fas fa-plus"></i>Add</div>
         </div>
      </div>   
