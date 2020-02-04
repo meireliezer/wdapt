@@ -48,11 +48,74 @@
     display: flex;
     align-items: center;
     padding: 0.3em 0.9em;
-    cursor: pointer
+    cursor: pointer;
+    border-radius: 5px;
+
 }
 
 .btn:hover {
     background-color: lightslategray;
 }
+
+
+.add-dialog {
+    background-color: lightslategrey;
+    opacity: 0.7;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+}
+
+.dialog {
+    margin:auto;
+    background-color: white;
+    opacity: 1;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 50vw;    
+    box-shadow: 50px 50px 100px ;
+}
+
+.dialog__content {
+    display: flex;
+    flex-direction: column;    
+    margin: 1em 1em;
+}
+
+.dialog__content label, .dialog__content input {
+    width: 100%;
+}
+
+.dialog__content label:not(:last-of-type) {
+    margin-bottom: 0.5em;
+}
+
+.dialog__content input {
+    display: block;
+}
+
+.dialog__header {
+    padding: 1em 3em;
+    font-size: large;
+    border-bottom: 1px solid gray;    
+}
+
+.dialog_content {
+    
+}
+
+.dialog__footer {
+ display: flex;
+ justify-content: space-around;
+ padding-top: 1em;
+ padding-bottom: 1em;
+}
+
+.dialog__footer btn {    
+}
+
 
 

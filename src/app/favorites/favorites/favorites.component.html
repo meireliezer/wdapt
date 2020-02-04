@@ -16,4 +16,30 @@
      </div>    
 </div>
 
+<ng-template #addWebsite>
+    <div class="add-dialog">
+            <div class="dialog">
+                <div class="dialog__header">
+                    Add new website
+                </div>
+                <div class="dialog__content">
+                    <label>Website name<input type="text"></label>
+                    <label>URL<input type="text"></label>
+                </div>
+                <div class="dialog__footer">
+                    <div class="btn">Add website</div>
+                    <div class="btn">Cancle</div>
+                </div>
+
+
+            </div>
+    </div>
+
+</ng-template>
+
+<ng-content *ngTemplateOutlet="addWebsite"></ng-content>
+
+<div *ngIf= "false; else addWebsite">
+    <ng-content *ngTemplateOutlet="addWebsite"></ng-content>
+</div>
 
