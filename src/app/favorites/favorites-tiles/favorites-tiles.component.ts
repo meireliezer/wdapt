@@ -29,8 +29,9 @@ export class FavoritesTilesComponent implements OnInit, OnDestroy {
       .subscribe(filterTxt => this.filterTxt = filterTxt);
    }
 
-  ngOnInit() {
+  ngOnInit() {    
   }
+  
   ngOnDestroy(): void {
     this._searchSubscribe.unsubscribe();
   }

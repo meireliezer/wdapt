@@ -3,7 +3,7 @@
     border: 1px solid black;
     border-radius: 5px;
     padding-top: 1em;
-    background-color: rgba(128, 128, 128, 0.062);
+    background-color: white;
 }
 
 .my-modal__header {
