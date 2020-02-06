@@ -77,4 +77,14 @@ export class FavoritesService {
     this.actionsLogService.add(websiteName, url);
   }
 
+
+  public remove(id: number, websiteName:string, url:string){
+    let index = this.favoritesList.findIndex( item => item.id === id);
+    if(index !== -1){
+      this.favoritesList.splice(index, 1);
+      this.favoriteSubject.next([...this.favoritesList]);
+      this.actionsLogService.delete(websiteName, url);
+    }
+  }
+
 }

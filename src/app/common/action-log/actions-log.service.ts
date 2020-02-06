@@ -50,17 +50,7 @@ export class ActionsLogService {
 
 
    public add(websiteName: string, url: string) {
-     let action: ActionLog = {
-       id: this.actionList.length,
-       websiteName, 
-       url,
-       date: Date.now(),
-       type: ActionEnum.add
-     }
-
-
-     this.actionList.push(action);
-     this.actionsSubject.next(this.actionList);
+     this.addAction(ActionEnum.add, websiteName, url);
    }
 
 
@@ -73,13 +63,22 @@ export class ActionsLogService {
     this.actionsSubject.next(this.actionList);
   }
 
-  public delete(id: number) {
-    let actionIdx =  this.actionList.findIndex( action => action.id === id);
-    if(actionIdx >= 0){
-      this.actionList.splice(actionIdx, 1);
-      this.actionsSubject.next(this.actionList);
-    }    
+  public delete(websiteName: string, url: string) {
+    this.addAction(ActionEnum.delete, websiteName, url);
    
+  }
+
+
+  private addAction(actionType:ActionEnum, websiteName:string, url:string){
+    let action: ActionLog = {
+      id: this.actionList.length,
+      websiteName, 
+      url,
+      date: Date.now(),
+      type: actionType
+    }
+    this.actionList.push(action);
+    this.actionsSubject.next(this.actionList);
   }
 
 }

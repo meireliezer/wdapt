@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { MyModalService } from 'src/app/core/my-modal/my-modal.service';
 import { FavoriteItem } from 'src/app/model/favorite-item.interface';
 import { DeleteComponent } from '../delete/delete/delete.component';
+import { ModalOk } from 'src/app/model/modal.interface';
 
 @Component({
   selector: 'app-favorites-grid',
@@ -37,7 +38,12 @@ export class FavoritesGridComponent implements OnInit, OnDestroy {
 
 
   public delete(favorite:FavoriteItem){
-    this.myModalServcice.openModal(DeleteComponent).subscribe(val => console.log('FavoritesGridComponent: delete', val));;
+    this.myModalServcice.openModal(DeleteComponent)
+    .subscribe(val => {
+      if(val.operation === ModalOk){
+        this.favoritesService.remove(favorite.id, favorite.websiteName, favorite.url);
+      }
+    });;
 
   }
 
