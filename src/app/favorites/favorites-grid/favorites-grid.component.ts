@@ -2,6 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FavoritesService } from 'src/app/common/favorites/favorites.service';
 import { SearchService } from 'src/app/common/search/search.service';
 import { Subscription } from 'rxjs';
+import { MyModalService } from 'src/app/core/my-modal/my-modal.service';
+import { FavoriteItem } from 'src/app/model/favorite-item.interface';
+import { DeleteComponent } from '../delete/delete/delete.component';
 
 @Component({
   selector: 'app-favorites-grid',
@@ -17,7 +20,8 @@ export class FavoritesGridComponent implements OnInit, OnDestroy {
   private _searchSubscribe:Subscription;
 
   constructor(private favoritesService: FavoritesService,
-              private searchService: SearchService) {
+              private searchService: SearchService, 
+              private myModalServcice: MyModalService) {
 
 
       this._searchSubscribe = this.searchService.search$
@@ -30,6 +34,19 @@ export class FavoritesGridComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this._searchSubscribe.unsubscribe();
   }
+
+
+  public delete(favorite:FavoriteItem){
+    this.myModalServcice.openModal(DeleteComponent);
+
+  }
+
+
+  public edit(favorite:FavoriteItem){
+
+  }
+
+
 
 
 }

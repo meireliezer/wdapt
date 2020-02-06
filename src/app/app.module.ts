@@ -66,6 +66,7 @@ const appRoutes: Routes = [
     
   ],
   providers: [ActionsLogService, FavoritesService],
+  entryComponents:[DeleteComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
