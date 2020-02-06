@@ -37,7 +37,7 @@ export class FavoritesGridComponent implements OnInit, OnDestroy {
 
 
   public delete(favorite:FavoriteItem){
-    this.myModalServcice.openModal(DeleteComponent);
+    this.myModalServcice.openModal(DeleteComponent).subscribe(val => console.log('FavoritesGridComponent: delete', val));;
 
   }
 

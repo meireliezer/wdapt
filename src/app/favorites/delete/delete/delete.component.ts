@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-delete',
@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteComponent implements OnInit {
 
+  
+  @Output()
+  cancelEvent = new EventEmitter();
+
+  @Output()
+  okEvent = new EventEmitter();
+  
   constructor() { }
 
   ngOnInit() {
@@ -15,10 +22,13 @@ export class DeleteComponent implements OnInit {
 
   public remove(){
     console.log('remove');
+    this.okEvent.emit('ok');
+
   }
 
   public cancel() {
     console.log( 'cancel')
+    this.cancelEvent.emit();
   }
 
 }
