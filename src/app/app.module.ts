@@ -15,6 +15,8 @@ import { SearchFilterPipe } from './core/search-filter/search-filter.pipe';
 import { MyModalDirective } from './core/my-modal/my-modal.directive';
 import { DeleteComponent } from './favorites/delete/delete/delete.component';
 import { EditComponent } from './favorites/edit/edit/edit.component';
+import { CommonModule } from '@angular/common';
+import { CoreModule } from './core/core.module';
 
 
 const appRoutes: Routes = [
@@ -51,10 +53,7 @@ const appRoutes: Routes = [
     FavoritesComponent,
     FavoritesGridComponent,
     FavoritesTilesComponent,
-    ActionsLogComponent,
-    ActionFormatterPipe,
-    SearchFilterPipe,
-    MyModalDirective,
+    ActionsLogComponent,        
     DeleteComponent,
     EditComponent
   ],
@@ -64,10 +63,12 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
-    )
+    ), 
+    CommonModule,
+    CoreModule
     
   ],
-  providers: [ActionsLogService, FavoritesService],
+  providers: [],
   entryComponents:[DeleteComponent, EditComponent],
   bootstrap: [AppComponent]
 })
