@@ -16,7 +16,8 @@ import { SearchFilterPipe } from './search-filter/search-filter.pipe';
   ],
   exports:[
     ActionFormatterPipe,
-    SearchFilterPipe
+    SearchFilterPipe,
+    MyModalDirective
   ],
   providers:[
     MyModalService,
