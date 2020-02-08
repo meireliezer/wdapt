@@ -13,8 +13,18 @@
 }
 
 .my-modal__content {
-    padding: 1em 2em;
-    
+    padding: 1em 1em;
+    display:flex;
+    flex-direction: column;    
+}
+
+input {
+    display: block;
+    width: 100%;
+}
+
+label:not(:last-of-type) {
+    padding-bottom: 1em;
 }
 
 .my-modal__footer {    
@@ -36,4 +46,10 @@
 
 .btn:hover{
     background-color: var(--bg-hover);
+}
+
+.btn--disabled {
+    cursor: default;
+    background-color: grey;
+    pointer-events: none;
 }

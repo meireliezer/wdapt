@@ -11,7 +11,7 @@
         </label>
     </div>
     <div class="my-modal__footer">
-        <div class="btn" (click)="save()">Save changes</div>
+        <div class="btn" (click)="save() " [ngClass]="{'btn--disabled':!isValid() }">Save changes</div>
         <div class="btn" (click)="cancel()">Cancel</div>
     </div>
 

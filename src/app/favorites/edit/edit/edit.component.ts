@@ -39,5 +39,8 @@ export class EditComponent implements OnInit {
     this.cancelEvent.emit();
   }
 
+  public isValid() {
+    return this.data.websiteName.trim().length !== 0 && this.data.url.trim() !== '';
+  }
 
 }

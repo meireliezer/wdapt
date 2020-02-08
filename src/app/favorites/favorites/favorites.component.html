@@ -32,7 +32,7 @@
                         <label>URL<input type="text" name="url" [(ngModel)]="url" required></label>
                     </div>                                       
                     <div class="dialog__footer">                                                
-                        <div class="btn" (click)="submit()" [ngClass]="{'btn-disabled':!isValid() }" >Add website</div>
+                        <div class="btn" (click)="submit()" [ngClass]="{'btn--disabled':!isValid() }" >Add website</div>
                         <div class="btn" (click)="closeNewAddDialog()">Cancle</div>
                     </div>      
                     
