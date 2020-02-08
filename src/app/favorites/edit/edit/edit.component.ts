@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { FavoriteItem } from 'src/app/model/favorite-item.interface';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-edit',
@@ -17,7 +18,6 @@ export class EditComponent implements OnInit {
 
   @Output()
   okEvent = new EventEmitter();
-  
   
   constructor() { 
     this.data = {
