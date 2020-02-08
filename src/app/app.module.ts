@@ -37,11 +37,12 @@ const appRoutes: Routes = [
 
     ]
   },
-
-  { path: 'action-log',      component: ActionsLogComponent },
-  
+  { 
+    path: 'action-log',      
+    component: ActionsLogComponent 
+  },  
   { path: '',
-    redirectTo: '/favorites',
+    redirectTo: '/favorites/grid',
     pathMatch: 'full'
   },
   { path: '**', component: FavoritesComponent /*PageNotFoundComponent*/ }
