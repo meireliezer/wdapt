@@ -6,6 +6,7 @@ import { MyModalService } from 'src/app/core/my-modal/my-modal.service';
 import { FavoriteItem } from 'src/app/model/favorite-item.interface';
 import { DeleteComponent } from '../delete/delete/delete.component';
 import { ModalOk } from 'src/app/model/modal.interface';
+import { EditComponent } from '../edit/edit/edit.component';
 
 @Component({
   selector: 'app-favorites-grid',
@@ -49,6 +50,12 @@ export class FavoritesGridComponent implements OnInit, OnDestroy {
 
 
   public edit(favorite:FavoriteItem){
+    this.myModalServcice.openModal(EditComponent,favorite)
+    .subscribe((data: any) => {
+      if(data.operation === ModalOk){
+        this.favoritesService.edit(favorite.id, data.data.websiteName, data.data.url);
+      }
+    });;
 
   }
 

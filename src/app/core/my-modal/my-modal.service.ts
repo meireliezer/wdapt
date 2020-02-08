@@ -22,7 +22,7 @@ export class MyModalService {
     this.viewContainerRef= viewContainerRef;
   }
 
-  public openModal(component:any): Observable<ModalReturnData>{
+  public openModal(component:any, data?:any): Observable<ModalReturnData>{
     
     let subject =  new Subject<ModalReturnData>();
    
@@ -35,16 +35,21 @@ export class MyModalService {
     let backgroundElem = document.querySelector('.app-my-modal-background');
     backgroundElem['style']['visibility'] =  'visible';
       
-    // register to the events
+    // Register to the events
     componentRef.instance['cancelEvent'].subscribe( val => {      
       subject.next({operation:ModalCancel})
       this.close();
     });
 
-    componentRef.instance['okEvent'].subscribe( val => {      
-      subject.next({operation:ModalOk, data: val});
+    componentRef.instance['okEvent'].subscribe( data => {      
+      subject.next({operation:ModalOk, data: data});
       this.close();
     });
+
+    // Pass data to input
+    if(data) {
+      componentRef.instance['data'] = data;
+    }
 
 
     return subject.asObservable().pipe(take(1));

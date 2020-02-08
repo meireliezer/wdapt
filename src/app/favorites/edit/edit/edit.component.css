@@ -1,0 +1,39 @@
+.my-modal {
+    display:inline-block;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-top: 1em;
+    background-color: white;
+}
+
+.my-modal__header {
+    padding-left: 1em;
+    padding-bottom:  1em;
+    border-bottom: 1px solid black;
+}
+
+.my-modal__content {
+    padding: 1em 2em;
+    
+}
+
+.my-modal__footer {    
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1em;
+    margin-right: 1em;    
+    padding-bottom: 1em;
+}
+
+.btn {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding : 0.5em 1.5em;
+    margin-left: 0.5em;
+    cursor: pointer;
+    background-color: white;
+}
+
+.btn:hover{
+    background-color: var(--bg-hover);
+}

@@ -87,4 +87,17 @@ export class FavoritesService {
     }
   }
 
+
+  public edit(id: number, websiteName:string, url:string) {
+    let favorite = this.favoritesList.find( item => item.id === id);
+    if(favorite){
+      favorite.websiteName = websiteName;
+      favorite.url = url;
+      this.favoriteSubject.next([...this.favoritesList]);
+      this.actionsLogService.edit(id, websiteName, url);
+
+    }
+
+  }
+
 }

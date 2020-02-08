@@ -55,12 +55,7 @@ export class ActionsLogService {
 
 
    public edit(id: number, websiteName: string, url: string) {
-    let action =  this.actionList.find( action => action.id === id);
-    if(action){
-      action.websiteName = websiteName || action.websiteName;
-      action.url = url || action.url;
-    }    
-    this.actionsSubject.next(this.actionList);
+    this.addAction(ActionEnum.edit, websiteName, url);
   }
 
   public delete(websiteName: string, url: string) {

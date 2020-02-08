@@ -14,6 +14,7 @@ import { FavoritesService } from './common/favorites/favorites.service';
 import { SearchFilterPipe } from './core/search-filter/search-filter.pipe';
 import { MyModalDirective } from './core/my-modal/my-modal.directive';
 import { DeleteComponent } from './favorites/delete/delete/delete.component';
+import { EditComponent } from './favorites/edit/edit/edit.component';
 
 
 const appRoutes: Routes = [
@@ -54,7 +55,8 @@ const appRoutes: Routes = [
     ActionFormatterPipe,
     SearchFilterPipe,
     MyModalDirective,
-    DeleteComponent
+    DeleteComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,7 @@ const appRoutes: Routes = [
     
   ],
   providers: [ActionsLogService, FavoritesService],
-  entryComponents:[DeleteComponent],
+  entryComponents:[DeleteComponent, EditComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
