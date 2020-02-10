@@ -4,32 +4,17 @@ const favorites = require('./models/favorites');
 
 const app = express();
 const port = 3000;
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+
+app.use(express.json()) // for parsing application/json
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 const dirName = `${__dirname}\\..\\..\\dist\\wdapt\\`
 console.log('__dirname:'+ dirName);
 app.use(express.static(dirName));
 
 
-app.get('/', (request, response) => {
-    response.send('Hello World!');
-});
-
-app.get('/about',  (request, response) => {
-    response.send('About Us');
-});
-
-app.get('/test',  (request, response) => {
-    console.log('request', request);
-    
-    const meir = {
-        firstName: 'Meir',
-        lastName: 'Eliezer',
-        age:46
-    }
-
-    response.status(201).send(meir);
-});
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 /*****************************************
         Actions Log 
@@ -41,26 +26,57 @@ app.get('/api/actions-log', (req, res) => {
 /*****************************************
         Favorites 
 ******************************************/
+app.get('/api/favorites', (req, res) => {
+    let retValue;
+    let retStatus = 200;
+    retValue = favorites.get();
+    console.log('retValue', retValue);
+    res.status(retStatus).send(retValue);
+});
+
 app.get('/api/favorites/:id', (req, res) => {
     let retValue;
     let retStatus = 200;
     let id = req.params['id'];
-    console.log('id', id);
-    if(id) {
-        id = parseInt(id);
-        retValue = favorites.get(id);
-        if(!retValue) {
-            retStatus = 404;
-            retValue = {};
-        }
-    } else {
-        retValue = favorites.get();
+    id = parseInt(id);
+    retValue = favorites.get(id);
+    if(!retValue) {
+        retStatus = 404;
+        retValue = {};
     }
-
     console.log('retValue', retValue);
     res.status(retStatus).send(retValue);
-
 });
+
+app.delete('/api/favorites/:id', (req, res) =>{
+    let id = parseInt(req.params['id']);    
+    let removedItem = favorites.remove(id);
+    let retStatus = (removedItem)? 200: 404;
+    console.log('removedItem', removedItem);
+    res.status(retStatus).end();
+});
+
+app.post('/api/favorites', (req, res) => {
+    let item = req.body;
+    let newItem = favorites.add(item.websiteName, item.url);
+    console.log('new Item', newItem);
+    res.send(newItem);
+});
+
+app.put('/api/favorites/:id', (req, res) => {
+    let retStatus = 200;
+    let id = parseInt(req.params['id']); 
+    console.log('id', id);       
+    let item = req.body;
+    console.log('body', item);
+    let retItem = favorites.edit(id, item.websiteName, item.url);
+    if(!retItem){
+        retStatus = 404;        
+    }
+    console.log('new Item', retItem);
+    res.status(retStatus).end();
+});
+
 
 /*
 console.log('actionsLog',actionsLog)

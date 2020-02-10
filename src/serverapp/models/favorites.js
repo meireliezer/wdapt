@@ -71,6 +71,7 @@ function remove(id){
 
 function edit(id, websiteName, url) {
     let favorite = favoritesList.find( item => item.id === id);
+    console.log(`${id}, ${websiteName}, ${url} => `, favorite);
     if(favorite){
       favorite.websiteName = websiteName;
       favorite.url = url;      
