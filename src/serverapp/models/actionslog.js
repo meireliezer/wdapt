@@ -4,28 +4,28 @@ const ACTION_EDIT = 1;
 const ACTION_DELETE = 2;
 const actionsList= [
     {
-      id: 1,
+      id: 0,
       date: Date.now(),
       websiteName: 'ynet',
       url:'http://ynet.co.il',
       type: ACTION_ADD
     },
     {
-      id: 2,
+      id: 1,
       date: Date.now(),
       websiteName: 'cnn',
       url:'http://cnn.com',
       type: ACTION_ADD
     },
     {
-      id: 3,
+      id: 2,
       date: Date.now(),
       websiteName: 'facbook',
       url:'http://facebook',
       type: ACTION_EDIT
     },
     {
-      id: 4,
+      id: 3,
       date: Date.now(),
       websiteName: 'hotmail',
       url:'http://hotmail.com',

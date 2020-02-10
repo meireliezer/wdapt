@@ -1,5 +1,6 @@
 const express = require('express');
-const actionsLog = require('./actionsLog');
+const actionsLog = require('./models/actionslog');
+const favorites = require('./models/favorites');
 
 const app = express();
 const port = 3000;
@@ -32,16 +33,20 @@ app.get('/test',  (request, response) => {
 
 
 
-
-console.log('actionsLog',actionsLog)
-
-
-console.log('get item id 1 -----------------\n',actionsLog.get(1));
 /*
+console.log('actionsLog',actionsLog)
+console.log('get item id 1 -----------------\n',actionsLog.get(1));
 actionsLog.add('meir1', 'http://meir1');
 console.log('after add meir1 ---------------\n',actionsLog.get());
 actionsLog.edit(1, 'meir2', 'http://meir2');
 console.log('after edit id 1  meir 2 -------\n',actionsLog.get());
 actionsLog.remove(1, 'meir', 'http:\\meir');
 console.log('after remove ------------------\n',actionsLog.get());
+*/
+/*
+console.log('favorites', favorites);
+//console.log('favorites get', favorites.get(7));
+console.log('add: ',favorites.remove(6));
+console.log('favorites', favorites.get());
+console.log('actions', actionsLog.get());
 */
