@@ -82,7 +82,7 @@ function edit(id, websiteName, url) {
   function get(id){
       let retVal;
       if(id) {
-            retVal = favoritesList.find( item => item.id === id);
+        retVal = favoritesList.find( item => item.id === id);        
       } else {
           retVal = favoritesList;
       }

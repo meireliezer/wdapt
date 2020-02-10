@@ -31,7 +31,36 @@ app.get('/test',  (request, response) => {
     response.status(201).send(meir);
 });
 
+/*****************************************
+        Actions Log 
+******************************************/
+app.get('/api/actions-log', (req, res) => {
+    res.send(actionsLog.get());
+});
 
+/*****************************************
+        Favorites 
+******************************************/
+app.get('/api/favorites/:id', (req, res) => {
+    let retValue;
+    let retStatus = 200;
+    let id = req.params['id'];
+    console.log('id', id);
+    if(id) {
+        id = parseInt(id);
+        retValue = favorites.get(id);
+        if(!retValue) {
+            retStatus = 404;
+            retValue = {};
+        }
+    } else {
+        retValue = favorites.get();
+    }
+
+    console.log('retValue', retValue);
+    res.status(retStatus).send(retValue);
+
+});
 
 /*
 console.log('actionsLog',actionsLog)
