@@ -10,44 +10,13 @@ import { tap } from 'rxjs/operators';
 export class ActionsLogService {
 
   private BASE_URL_DEBUG = 'http://localhost:3000';
-  private actionList: Array<ActionLog> = [
-    {
-      id: 1,
-      date: Date.now(),
-      websiteName: 'ynet',
-      url:'http://ynet.co.il',
-      type: ActionEnum.add
-    },
-    {
-      id: 2,
-      date: Date.now(),
-      websiteName: 'cnn',
-      url:'http://cnn.com',
-      type: ActionEnum.add
-    },
-    {
-      id: 3,
-      date: Date.now(),
-      websiteName: 'facbook',
-      url:'http://facebook',
-      type: ActionEnum.edit
-    },
-    {
-      id: 4,
-      date: Date.now(),
-      websiteName: 'hotmail',
-      url:'http://hotmail.com',
-      type: ActionEnum.delete
-    }
-  ];
-
-
+  
   private actionsSubject = new BehaviorSubject<ActionLog[]>([]);
   public actions$: Observable<ActionLog[]> = this.actionsSubject.asObservable();
     
 
   constructor(private http: HttpClient) {
-   }
+  }
 
    public get(): Observable<ActionLog[]>{
       return this.http.get<ActionLog[]>(`${this.BASE_URL_DEBUG}/api/actions-log`).pipe(
@@ -58,35 +27,4 @@ export class ActionsLogService {
           })
       );      
    }
-
-
-
-
-   public add(websiteName: string, url: string) {
-     this.addAction(ActionEnum.add, websiteName, url);
-   }
-
-
-   public edit(id: number, websiteName: string, url: string) {
-    this.addAction(ActionEnum.edit, websiteName, url);
-  }
-
-  public delete(websiteName: string, url: string) {
-    this.addAction(ActionEnum.delete, websiteName, url);
-   
-  }
-
-
-  private addAction(actionType:ActionEnum, websiteName:string, url:string){
-    let action: ActionLog = {
-      id: this.actionList.length,
-      websiteName, 
-      url,
-      date: Date.now(),
-      type: actionType
-    }
-    this.actionList.push(action);
-    this.actionsSubject.next(this.actionList);
-  }
-
 }
