@@ -9,8 +9,12 @@ const port = 3000;
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
-const dirName = `${__dirname}\\..\\..\\dist\\wdapt\\`
-console.log('__dirname:'+ dirName);
+//const dirName = `${__dirname}\\..\\..\\dist\\wdapt\\`
+let dirName = `${__dirname}\\www\\`
+console.log('__dirname(1):'+ dirName);
+app.use(express.static(dirName));
+dirName = `${__dirname}\\..\\..\\dist\\wdapt\\`;
+console.log('__dirname(2):'+ dirName);
 app.use(express.static(dirName));
 
 
