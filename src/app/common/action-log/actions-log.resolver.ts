@@ -23,8 +23,7 @@ export class ActionsLogResolver implements Resolve<Observable<ActionLog[]>> {
 */
 
     return this.actionLogService.get().pipe(
-        tap(val => console.log('acions-log', val)),
-        take(1)
+        tap(val => console.log('acions-log', val))        
     );
   }
 }
