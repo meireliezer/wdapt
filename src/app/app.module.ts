@@ -17,6 +17,8 @@ import { DeleteComponent } from './favorites/delete/delete/delete.component';
 import { EditComponent } from './favorites/edit/edit/edit.component';
 import { CommonModule } from '@angular/common';
 import { CoreModule } from './core/core.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ActionsLogResolver } from './common/action-log/actions-log.resolver';
 
 
 const appRoutes: Routes = [
@@ -39,7 +41,12 @@ const appRoutes: Routes = [
   },
   { 
     path: 'action-log',      
-    component: ActionsLogComponent 
+    component: ActionsLogComponent ,
+    resolve: {
+      actionsLogs: ActionsLogResolver
+    }
+  
+    
   },  
   { path: '',
     redirectTo: '/favorites/grid',
@@ -65,11 +72,12 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
     ), 
+    HttpClientModule,
     CommonModule,
-    CoreModule
+    CoreModule    
     
   ],
-  providers: [],
+  providers: [ActionsLogResolver],
   entryComponents:[DeleteComponent, EditComponent],
   bootstrap: [AppComponent]
 })
