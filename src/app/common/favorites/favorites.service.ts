@@ -4,26 +4,24 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { ActionsLogService } from '../action-log/actions-log.service';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import { UrlBaseService } from '../url-base/url-base.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritesService {
-
-  private BASE_URL_DEBUG = 'http://localhost:3000';
+  
   private favoritesList: FavoriteItem[] = []
-
   private favoriteSubject = new BehaviorSubject<FavoriteItem[]>([]);
   public favorites$ = this.favoriteSubject.asObservable();
 
-
-
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient,
+              private urlBase: UrlBaseService) { 
   }
 
 
   public get():Observable<FavoriteItem[]>{
-    return this.http.get<FavoriteItem[]>(`${this.BASE_URL_DEBUG}/api/favorites`).pipe(
+    return this.http.get<FavoriteItem[]>(`${this.urlBase.getUrlBase()}/api/favorites`).pipe(
       tap( val => {
         this.favoritesList = val;
         this.favoriteSubject.next([...this.favoritesList]);
@@ -39,7 +37,7 @@ export class FavoritesService {
       url
     };
 
-    this.http.post(`${this.BASE_URL_DEBUG}/api/favorites`, favorite).subscribe(
+    this.http.post(`${this.urlBase.getUrlBase()}/api/favorites`, favorite).subscribe(
       (newItem: FavoriteItem) => {
         this.favoritesList.push(newItem);
         this.favoriteSubject.next([...this.favoritesList]);
@@ -50,7 +48,7 @@ export class FavoritesService {
 
   public remove(id: number, websiteName:string, url:string){
 
-    this.http.delete(`${this.BASE_URL_DEBUG}/api/favorites/${id}`).subscribe(
+    this.http.delete(`${this.urlBase.getUrlBase()}/api/favorites/${id}`).subscribe(
       () => {
         let index = this.favoritesList.findIndex( item => item.id === id);    
         if(index !== -1){
@@ -69,7 +67,7 @@ export class FavoritesService {
       url      
     };
 
-    this.http.put(`${this.BASE_URL_DEBUG}/api/favorites/${id}`, favorite).subscribe(
+    this.http.put(`${this.urlBase.getUrlBase()}/api/favorites/${id}`, favorite).subscribe(
       _=>{
         let favorite = this.favoritesList.find( item => item.id === id);
         if(favorite){
