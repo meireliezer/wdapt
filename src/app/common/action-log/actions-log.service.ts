@@ -20,10 +20,9 @@ export class ActionsLogService {
 
    public get(): Observable<ActionLog[]>{
       return this.http.get<ActionLog[]>(`${this.BASE_URL_DEBUG}/api/actions-log`).pipe(
-        tap(val => {
-          this.actionList = val;
+        tap(val => {          
           console.log('actions-log:get():',val);
-          this.actionsSubject.next(this.actionList);
+          this.actionsSubject.next(val);
           })
       );      
    }

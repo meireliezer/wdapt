@@ -74,7 +74,7 @@ export class FavoritesService {
     });
     
     this.favoriteSubject.next([...this.favoritesList]);
-    this.actionsLogService.add(websiteName, url);
+    
   }
 
 
@@ -83,7 +83,7 @@ export class FavoritesService {
     if(index !== -1){
       this.favoritesList.splice(index, 1);
       this.favoriteSubject.next([...this.favoritesList]);
-      this.actionsLogService.delete(websiteName, url);
+    
     }
   }
 
@@ -94,8 +94,6 @@ export class FavoritesService {
       favorite.websiteName = websiteName;
       favorite.url = url;
       this.favoriteSubject.next([...this.favoritesList]);
-      this.actionsLogService.edit(id, websiteName, url);
-
     }
 
   }
