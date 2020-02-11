@@ -6,7 +6,7 @@ import {ActionsLogService } from '../../common/action-log/actions-log.service';
   templateUrl: './actions-log.component.html',
   styleUrls: ['./actions-log.component.css']
 })
-export class ActionsLogComponent implements OnInit {
+export class ActionsLogComponent {
 
   public actions$ = this.actionsService.actions$;
   

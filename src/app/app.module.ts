@@ -19,10 +19,16 @@ import { CommonModule } from '@angular/common';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ActionsLogResolver } from './common/action-log/actions-log.resolver';
+import { FavoritesResolver } from './common/favorites/favorites.resolver';
 
 
 const appRoutes: Routes = [
-  { path: 'favorites', component: FavoritesComponent,
+  { 
+    path: 'favorites', 
+    component: FavoritesComponent,
+    resolve: {
+      favorites: FavoritesResolver
+    },
     children: [
       {
         path: 'grid',
@@ -77,8 +83,14 @@ const appRoutes: Routes = [
     CoreModule    
     
   ],
-  providers: [ActionsLogResolver],
-  entryComponents:[DeleteComponent, EditComponent],
+  providers: [
+    ActionsLogResolver,
+    FavoritesResolver
+  ],
+  entryComponents:[
+    DeleteComponent, 
+    EditComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

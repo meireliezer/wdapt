@@ -13,14 +13,6 @@ export class ActionsLogResolver implements Resolve<Observable<ActionLog[]>> {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ActionLog[]> {
-/*    
-    let subect = new Subject<ActionLog[]>();  
-    this.actionLogService.get().subscribe (val =>{
-        subect.next(val);
-        subect.complete();
-    });
-    return subect.asObservable();
-*/
 
     return this.actionLogService.get().pipe(
         tap(val => console.log('acions-log', val))        
