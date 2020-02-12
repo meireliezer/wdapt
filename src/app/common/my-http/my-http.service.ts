@@ -9,6 +9,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class MyHttpService {
   
   private BASE_URL_DEBUG = 'http://localhost:3000';
+  private isDebug = false;
   
   constructor(private http: HttpClient) { 
   }
@@ -42,8 +43,9 @@ export class MyHttpService {
       ); 
   }
 
-  private getUrlBase(isDebug = true){
-    return (isDebug)? this.BASE_URL_DEBUG : '';
+  private getUrlBase(){
+
+    return (this.isDebug)? this.BASE_URL_DEBUG : '';
   }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
