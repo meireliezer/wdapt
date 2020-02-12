@@ -1,5 +1,12 @@
 How to make it work (with server)
 
+1. set api url
+	go to my-http.service and mark isDebug = false
+2. cmd: npm run meir
+   it will build the project
+   and copy the dist folder into src/serverapp.www
+
+
 
 1. build app
  a. run: ng build
