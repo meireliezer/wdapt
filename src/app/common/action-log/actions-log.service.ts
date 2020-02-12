@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActionLog } from 'src/app/model/action-log.interface';
-import { BehaviorSubject,  Observable} from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { BehaviorSubject,  Observable, of} from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
 import { MyHttpService } from '../my-http/my-http.service';
 
 @Injectable({
@@ -20,7 +20,8 @@ export class ActionsLogService {
       return this.myHttpService.get<ActionLog[]>(`/api/actions-log`).pipe(
         tap(val => {                    
           this.actionsSubject.next(val);
-          })
+          }),
+          catchError(()=> of([]))
       );            
    }
 }

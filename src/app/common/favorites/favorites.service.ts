@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FavoriteItem } from 'src/app/model/favorite-item.interface';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
 import { MyHttpService } from '../my-http/my-http.service';
 
 @Injectable({
@@ -22,7 +22,8 @@ export class FavoritesService {
       tap( val => {
         this.favoritesList = val;
         this.favoriteSubject.next([...this.favoritesList]);
-      })
+      }),
+      catchError(()=> of([]))
     );
   }
 
