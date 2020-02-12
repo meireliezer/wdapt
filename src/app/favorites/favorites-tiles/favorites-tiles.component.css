@@ -42,11 +42,14 @@
 .card-internal {
     margin: 0.5em;  
     border: 2px solid black;
+    display: flex;
+    flex-direction: column;
 }
 
 .card img {
     display: block;
     max-width: 100%;        
+
 }
 
 .card .name {
